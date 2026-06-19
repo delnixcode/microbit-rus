@@ -1,0 +1,2 @@
+cargo:rustc-link-search=/home/delwork/Documents/microbit/blinky/target/debug/build/nrf51-hal-6548b43ed0bacdc0/out
+cargo:rerun-if-changed=build.rs

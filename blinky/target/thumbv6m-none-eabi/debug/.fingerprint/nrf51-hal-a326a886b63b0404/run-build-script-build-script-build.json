@@ -1,0 +1,1 @@
+{"rustc":16696009966390864400,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[17136013295380861424,"build_script_build",false,12657487288189070086]],"local":[{"RerunIfChanged":{"output":"thumbv6m-none-eabi/debug/build/nrf51-hal-a326a886b63b0404/output","paths":["build.rs"]}}],"rustflags":["-C","link-arg=-Tlink.x"],"config":0,"compile_kind":0}

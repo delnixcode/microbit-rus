@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["events_datardy","intenclr","intenset","power","tasks_start","tasks_stop","temp"],"struct":["RegisterBlock"],"type":["EVENTS_DATARDY","INTENCLR","INTENSET","POWER","TASKS_START","TASKS_STOP","TEMP"]};

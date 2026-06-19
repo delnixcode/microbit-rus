@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["CLENR0_SPEC","R","W"]};

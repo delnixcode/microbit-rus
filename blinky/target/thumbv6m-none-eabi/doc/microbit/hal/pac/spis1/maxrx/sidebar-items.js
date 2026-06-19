@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["MAXRX_SPEC","R","W"],"type":["MAXRX_R","MAXRX_W"]};

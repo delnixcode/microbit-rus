@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["OVERRIDE1_SPEC","R","W"],"type":["OVERRIDE1_R","OVERRIDE1_W"]};

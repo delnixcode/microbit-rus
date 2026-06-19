@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["XTALFREQ_A"],"struct":["R","W","XTALFREQ_SPEC"],"type":["XTALFREQ_R","XTALFREQ_W"]};

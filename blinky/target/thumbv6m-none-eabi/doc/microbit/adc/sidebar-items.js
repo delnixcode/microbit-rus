@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":["Default"],"type":["Adc","AdcConfig"]};

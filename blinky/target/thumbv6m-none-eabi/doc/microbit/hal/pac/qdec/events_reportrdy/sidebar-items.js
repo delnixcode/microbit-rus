@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["EVENTS_REPORTRDY_SPEC","R","W"]};

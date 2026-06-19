@@ -1,0 +1,3 @@
+cargo:rustc-link-search=/home/delwork/Documents/microbit/blinky/target/thumbv7em-none-eabihf/debug/build/nrf52833-hal-526f93e0571d9479/out
+cargo:rerun-if-changed=build.rs
+cargo:rerun-if-changed=memory.x
