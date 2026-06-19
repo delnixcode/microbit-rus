@@ -1,0 +1,9 @@
+[default.general]
+chip = "nRF52833_xxAA"
+log_level = "WARN"
+
+[default.flashing]
+enabled = true
+
+[default.rtt]
+enabled = true
