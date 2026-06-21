@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["NRFHW_SPEC","R","W"]};

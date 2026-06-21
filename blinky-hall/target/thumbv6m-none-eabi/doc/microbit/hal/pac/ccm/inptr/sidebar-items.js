@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["INPTR_SPEC","R","W"]};

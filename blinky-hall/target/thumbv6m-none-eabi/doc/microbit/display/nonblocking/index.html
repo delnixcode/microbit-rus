@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Non-blocking support for the 5×5 LED display."><title>microbit::display::nonblocking - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-17e0aaed.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="microbit" data-themes="" data-resource-suffix="" data-rustdoc-version="1.96.0 (ac68faa20 2026-05-25)" data-channel="1.96.0" data-search-js="search-b5634cc7.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../../static.files/main-5013f961.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module nonblocking</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../microbit/index.html">microbit</a><span class="version">0.16.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module nonblocking</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#example" title="Example">Example</a></li><li><a href="#coordinate-system" title="Coordinate system">Coordinate system</a></li><li><a href="#greyscale-model" title="Greyscale model">Greyscale model</a></li><li><a href="#images" title="Images">Images</a></li><li><a href="#display" title="Display">Display</a></li><li><a href="#frames" title="Frames">Frames</a></li><li><a href="#timer-integration" title="Timer integration">Timer integration</a><ul><li><a href="#technical-details" title="Technical details">Technical details</a></li></ul></li><li><a href="#usage" title="Usage">Usage</a></li></ul><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#constants" title="Constants">Constants</a></li><li><a href="#traits" title="Traits">Traits</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="../index.html">In microbit::<wbr>display</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../../index.html">microbit</a>::<wbr><a href="../index.html">display</a></div><h1>Module <span>nonblocking</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="https://docs.rs/microbit-common/0.16.0/src/microbit_common/display/mod.rs.html#6">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Non-blocking support for the 5×5 LED display.</p>
+<p>Together with <a href="tiny_led_matrix"><code>tiny-led-matrix</code></a>, this module provides:</p>
+<ul>
+<li>support for driving the LED display from a timer interrupt</li>
+<li>ten levels of brightness for each LED</li>
+<li>simple 5×5 greyscale and black-and-white image types.</li>
+</ul>
+<p>The module doesn’t define interrupt handlers directly; instead it provides
+a function to be called from a timer interrupt. It knows how to program
+one of the micro:bit’s timers to provide that interrupt.</p>
+<h3 id="example"><a class="doc-anchor" href="#example">§</a>Example</h3>
+<p>This shows general usage but is not a working example.
+For a working exaple see
+<a href="https://github.com/nrf-rs/microbit/tree/main/examples/display-nonblocking"><code>display_nonblocking</code></a>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>microbit::{
+    Board,
+    hal,
+    display::nonblocking::{Display, GreyscaleImage},
+};
+<span class="kw">use </span>embedded_hal::delay::DelayNs;
+
+<span class="kw">let </span>board = Board::take().unwrap();
+
+<span class="kw">let </span><span class="kw-2">mut </span>display = Display::new(board.TIMER1, board.display_pins);
+
+<span class="comment">// in your main function
+</span>{
+    <span class="kw">let </span><span class="kw-2">mut </span>timer2 = hal::Timer::new(board.TIMER0);
+    <span class="kw">loop </span>{
+        display.show(<span class="kw-2">&amp;</span>GreyscaleImage::new(<span class="kw-2">&amp;</span>[
+            [<span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>],
+            [<span class="number">7</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">7</span>],
+            [<span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>],
+            [<span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>],
+            [<span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>],
+        ]));
+        timer2.delay_ms(<span class="number">1000</span>);
+
+        display.clear();
+        timer2.delay_ms(<span class="number">1000</span>);
+    }
+}
+
+<span class="comment">// in a timer interrupt
+</span>{
+    display.handle_display_event();
+}</code></pre></div><h3 id="coordinate-system"><a class="doc-anchor" href="#coordinate-system">§</a>Coordinate system</h3>
+<p>The LEDs are identified using (x,y) coordinates as follows:</p>
+<div class="example-wrap"><pre class="language-text"><code>(0,0) ... (4,0)
+ ...  ...  ...
+(0,4) ... (4,4)</code></pre></div>
+<p>where the ‘bottom’ (x,4) of the board is the edge connector.</p>
+<h3 id="greyscale-model"><a class="doc-anchor" href="#greyscale-model">§</a>Greyscale model</h3>
+<p>LED brightness levels are described using a scale from 0 (off) to 9
+(brightest) inclusive.</p>
+<p>These are converted to time slices using the same timings as used by the
+<a href="https://microbit-micropython.readthedocs.io/">micro:bit MicroPython port</a> (this is different to the 0 to
+255 scale used by the <a href="https://lancaster-university.github.io/microbit-docs/">micro:bit runtime</a>).</p>
+<p>The time slice for each level above 1 is approximately 1.9× the slice for
+the previous level.</p>
+<p>An LED with brightness 9 is lit for one third of the time (because internally there are three ‘rows’ of LEDs which have to be addressed one at a time).</p>
+<h3 id="images"><a class="doc-anchor" href="#images">§</a>Images</h3>
+<p>An image is a type that implements the [<code>tiny_led_matrix::Render</code>] trait. Two image types are provided:</p>
+<ul>
+<li><a href="struct.GreyscaleImage.html" title="struct microbit::display::nonblocking::GreyscaleImage"><code>GreyscaleImage</code></a>, allowing all 9 levels (using one byte for each LED)</li>
+<li><a href="struct.BitImage.html" title="struct microbit::display::nonblocking::BitImage"><code>BitImage</code></a>, allowing only ‘on’ and ‘off’ (using five bytes)</li>
+</ul>
+<h3 id="display"><a class="doc-anchor" href="#display">§</a>Display</h3>
+<p>A <a href="struct.Display.html" title="struct microbit::display::nonblocking::Display"><code>Display</code></a> instance controls the LEDs and programs a timer. There
+should normally be a single <code>Display</code> instance in the program. It is a wrapper
+around [<code>tiny_led_matrix::Display</code>] to expose an API similar to the blocking API.</p>
+<h3 id="frames"><a class="doc-anchor" href="#frames">§</a>Frames</h3>
+<p>Internally types implementing <a href="tiny_led_matrix::Render"><code>Render</code></a> aren’t used directly with the <a href="struct.Display.html" title="struct microbit::display::nonblocking::Display"><code>Display</code></a>;
+instead they’re used to update a <a href="struct.MicrobitFrame.html" title="struct microbit::display::nonblocking::MicrobitFrame"><code>MicrobitFrame</code></a> instance which is in
+turn passed to the <code>tiny_led_matrix::Display</code>.</p>
+<p>A <code>MicrobitFrame</code> instance is a ‘compiled’ representation of a 5×5
+greyscale image, in a form that’s more directly usable by the display
+code.</p>
+<p>This is exposed in the public API so that you can construct the
+<code>MicrobitFrame</code> representation in code running at a low priority. Then
+only <a href="struct.Display.html#method.show_frame" title="method microbit::display::nonblocking::Display::show_frame"><code>Display::show_frame()</code></a> has to be called in code that can’t be
+interrupted by the display timer.</p>
+<h3 id="timer-integration"><a class="doc-anchor" href="#timer-integration">§</a>Timer integration</h3>
+<p>The <a href="struct.Display.html" title="struct microbit::display::nonblocking::Display"><code>Display</code></a> expects to control a single timer. It can use the
+micro:bit’s <code>TIMER0</code>, <code>TIMER1</code>, or <code>TIMER2</code>.</p>
+<p>For the micro:bit v1 this uses a 6ms period to light each of the three
+internal LED rows, so that the entire display is updated every 18ms.</p>
+<p>For the micro:bit v2 this uses a 3ms period to light each of the five
+internal LED rows, so that the entire display is updated every 15ms.</p>
+<p>When rendering greyscale images, the <code>Display</code> requests extra interrupts
+within each 6ms or 3ms period. It only requests interrupts for the
+greyscale levels which are actually required for what’s currently being
+displayed.</p>
+<h4 id="technical-details"><a class="doc-anchor" href="#technical-details">§</a>Technical details</h4>
+<p>The timer is set to 16-bit mode, using a 62.5kHz or 135Khz clock (16 µs or
+8µs ticks). It resets every 375 ticks.</p>
+<h3 id="usage"><a class="doc-anchor" href="#usage">§</a>Usage</h3>
+<p>Choose a timer to drive the display from (<code>TIMER0</code>, <code>TIMER1</code>, or <code>TIMER2</code>).</p>
+<p>When your program starts:</p>
+<ul>
+<li>create a <a href="struct.Display.html" title="struct microbit::display::nonblocking::Display"><code>Display</code></a> struct passing the timer and
+<a href="../../gpio/struct.DisplayPins.html" title="struct microbit::gpio::DisplayPins"><code>gpio::DisplayPins</code></a> to <a href="struct.Display.html#method.new" title="associated function microbit::display::nonblocking::Display::new"><code>Display::new()</code></a>.</li>
+</ul>
+<p>In an interrupt handler for the timer call <a href="struct.Display.html#method.handle_display_event" title="method microbit::display::nonblocking::Display::handle_display_event"><code>.handle_display_event()</code></a></p>
+<p>To change what’s displayed; pass an image (<a href="struct.GreyscaleImage.html" title="struct microbit::display::nonblocking::GreyscaleImage"><code>GreyscaleImage</code></a> or <a href="struct.BitImage.html" title="struct microbit::display::nonblocking::BitImage"><code>BitImage</code></a>) to <a href="struct.Display.html#method.show" title="method microbit::display::nonblocking::Display::show"><code>Display::show</code></a>.</p>
+<p>You can call <code>show()</code> at any time, so long as you’re not interrupting, or interruptable by,
+<a href="struct.Display.html#method.handle_display_event" title="method microbit::display::nonblocking::Display::handle_display_event"><code>Display::handle_display_event()</code></a>.</p>
+<p>See <a href="https://github.com/nrf-rs/microbit/blob/master/examples/display_rtic"><code>display_rtic</code></a> or
+<a href="https://github.com/nrf-rs/microbit/blob/master/examples/display_nonblocking"><code>display_nonblocking</code></a>
+example for a complete working example.</p>
+</div></details><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><dl class="item-table"><dt><a class="struct" href="struct.BitImage.html" title="struct microbit::display::nonblocking::BitImage">BitImage</a></dt><dd>A 5×5 image supporting only two levels of brightness (on and off).</dd><dt><a class="struct" href="struct.Display.html" title="struct microbit::display::nonblocking::Display">Display</a></dt><dd>Non-blocking interface to the on board 5x5 LED display</dd><dt><a class="struct" href="struct.GreyscaleImage.html" title="struct microbit::display::nonblocking::GreyscaleImage">Greyscale<wbr>Image</a></dt><dd>A 5×5 image supporting the full range of brightnesses for each LED.</dd><dt><a class="struct" href="struct.MicrobitFrame.html" title="struct microbit::display::nonblocking::MicrobitFrame">Microbit<wbr>Frame</a></dt><dd>A ‘Compiled’ representation of a 5×5 image to be displayed.</dd></dl><h2 id="constants" class="section-header">Constants<a href="#constants" class="anchor">§</a></h2><dl class="item-table"><dt><a class="constant" href="constant.MAX_BRIGHTNESS.html" title="constant microbit::display::nonblocking::MAX_BRIGHTNESS">MAX_<wbr>BRIGHTNESS</a></dt><dd>The maximum brightness level for greyscale images (ie, 9; the minimum is 0).</dd></dl><h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2><dl class="item-table"><dt><a class="trait" href="trait.Frame.html" title="trait microbit::display::nonblocking::Frame">Frame</a></dt><dd>A ‘Compiled’ representation of an image to be displayed.</dd></dl></section></div></main></body></html>

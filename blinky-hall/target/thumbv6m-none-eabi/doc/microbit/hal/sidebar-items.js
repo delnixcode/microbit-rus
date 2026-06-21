@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["adc","ccm","clocks","ecb","gpio","gpiote","lpcomp","pac","ppi","prelude","rng","rtc","spi","target_constants","temp","time","timer","twi","uart","uicr","wdt"],"struct":["Adc","Ccm","Clocks","Ecb","Rng","Rtc","Spi","Temp","Timer","Twi","Uart"]};

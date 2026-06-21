@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["EVENTS_BB_SPEC","R","W"]};

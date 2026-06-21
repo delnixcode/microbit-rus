@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["config","events_valrdy","intenclr","intenset","power","shorts","tasks_start","tasks_stop","value"],"struct":["RegisterBlock"],"type":["CONFIG","EVENTS_VALRDY","INTENCLR","INTENSET","POWER","SHORTS","TASKS_START","TASKS_STOP","VALUE"]};

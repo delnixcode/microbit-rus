@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["CONFIGID_SPEC","R"],"type":["FWID_R","HWID_R"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["FREQUENCY_SPEC","R","W"],"type":["FREQUENCY_R","FREQUENCY_W"]};

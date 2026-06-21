@@ -1,0 +1,4 @@
+cargo:rustc-link-lib=static=cortex-m
+cargo:rustc-link-search=/home/delwork/Documents/microbit/blinky/target/thumbv6m-none-eabi/debug/build/cortex-m-fd7858426e73033f/out
+cargo:rustc-cfg=cortex_m
+cargo:rustc-cfg=armv6m

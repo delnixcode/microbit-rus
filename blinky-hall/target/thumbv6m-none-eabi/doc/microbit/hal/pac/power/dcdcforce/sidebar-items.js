@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FORCEOFF_A","FORCEON_A"],"struct":["DCDCFORCE_SPEC","R","W"],"type":["FORCEOFF_R","FORCEOFF_W","FORCEON_R","FORCEON_W"]};

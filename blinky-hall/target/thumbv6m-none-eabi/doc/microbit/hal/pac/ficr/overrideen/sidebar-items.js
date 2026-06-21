@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BLE_1MBIT_A","NRF_1MBIT_A"],"struct":["OVERRIDEEN_SPEC","R"],"type":["BLE_1MBIT_R","NRF_1MBIT_R"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["PCNF0_SPEC","R","W"],"type":["LFLEN_R","LFLEN_W","S0LEN_R","S0LEN_W","S1LEN_R","S1LEN_W"]};

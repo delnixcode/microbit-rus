@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["EEP_SPEC","R","W"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["Adc","AdcConfig","InternalVddOneThird","InternalVddTwoThirds"],"trait":["Channel"]};

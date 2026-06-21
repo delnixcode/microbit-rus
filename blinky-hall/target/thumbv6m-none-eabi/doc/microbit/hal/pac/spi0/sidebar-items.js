@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["config","enable","events_ready","frequency","intenclr","intenset","power","pselmiso","pselmosi","pselsck","rxd","txd"],"struct":["RegisterBlock"],"type":["CONFIG","ENABLE","EVENTS_READY","FREQUENCY","INTENCLR","INTENSET","POWER","PSELMISO","PSELMOSI","PSELSCK","RXD","TXD"]};

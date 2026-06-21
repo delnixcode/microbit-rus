@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["TASKS_TXEN_SPEC","W"]};

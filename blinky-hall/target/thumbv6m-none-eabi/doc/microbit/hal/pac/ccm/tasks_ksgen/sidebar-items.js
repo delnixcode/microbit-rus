@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["TASKS_KSGEN_SPEC","W"]};

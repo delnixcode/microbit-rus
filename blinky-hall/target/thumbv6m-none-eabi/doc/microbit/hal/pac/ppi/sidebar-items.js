@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["ch","chen","chenclr","chenset","chg","tasks_chg"],"struct":["CH","RegisterBlock","TASKS_CHG"],"type":["CHEN","CHENCLR","CHENSET","CHG"]};

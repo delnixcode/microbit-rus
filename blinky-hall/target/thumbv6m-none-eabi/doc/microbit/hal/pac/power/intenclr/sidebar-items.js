@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["POFWARN_A","POFWARN_AW"],"struct":["INTENCLR_SPEC","R","W"],"type":["POFWARN_R","POFWARN_W"]};

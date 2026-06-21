@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["MAX_BRIGHTNESS"],"struct":["BitImage","Display","GreyscaleImage","MicrobitFrame"],"trait":["Frame"]};

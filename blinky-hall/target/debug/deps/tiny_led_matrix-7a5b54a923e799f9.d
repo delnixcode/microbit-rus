@@ -1,0 +1,11 @@
+/home/delwork/Documents/microbit/blinky/target/debug/deps/tiny_led_matrix-7a5b54a923e799f9.d: /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/lib.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/control.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/display.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/timer.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/render.rs
+
+/home/delwork/Documents/microbit/blinky/target/debug/deps/libtiny_led_matrix-7a5b54a923e799f9.rlib: /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/lib.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/control.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/display.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/timer.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/render.rs
+
+/home/delwork/Documents/microbit/blinky/target/debug/deps/libtiny_led_matrix-7a5b54a923e799f9.rmeta: /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/lib.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/control.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/display.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/timer.rs /home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/render.rs
+
+/home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/lib.rs:
+/home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/control.rs:
+/home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/display.rs:
+/home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/timer.rs:
+/home/delwork/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-led-matrix-1.0.2/src/render.rs:

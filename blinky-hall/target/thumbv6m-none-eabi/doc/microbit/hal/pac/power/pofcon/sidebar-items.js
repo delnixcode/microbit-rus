@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["POF_A","THRESHOLD_A"],"struct":["POFCON_SPEC","R","W"],"type":["POF_R","POF_W","THRESHOLD_R","THRESHOLD_W"]};

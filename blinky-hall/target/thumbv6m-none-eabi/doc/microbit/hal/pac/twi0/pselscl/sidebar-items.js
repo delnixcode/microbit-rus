@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["PSELSCL_SPEC","R","W"]};

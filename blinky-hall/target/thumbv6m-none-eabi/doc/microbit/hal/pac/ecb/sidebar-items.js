@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["ecbdataptr","events_endecb","events_errorecb","intenclr","intenset","power","tasks_startecb","tasks_stopecb"],"struct":["RegisterBlock"],"type":["ECBDATAPTR","EVENTS_ENDECB","EVENTS_ERRORECB","INTENCLR","INTENSET","POWER","TASKS_STARTECB","TASKS_STOPECB"]};

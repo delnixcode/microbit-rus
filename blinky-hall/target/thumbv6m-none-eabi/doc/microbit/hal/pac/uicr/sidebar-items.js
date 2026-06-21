@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["bootloaderaddr","clenr0","customer","fwid","nrffw","nrfhw","rbpconf","xtalfreq"],"struct":["RegisterBlock"],"type":["BOOTLOADERADDR","CLENR0","CUSTOMER","FWID","NRFFW","NRFHW","RBPCONF","XTALFREQ"]};
